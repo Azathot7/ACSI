@@ -24,9 +24,11 @@ with st.container():
 name=option 
 iamge=db.dcm_img(name)
 iamge2=np.array(iamge)
-iamge3=red.predecir(iamge2)
+iamge3,prediction=red.predecir(iamge2)
 
 with st.container():
+    st.write("---")
+    st.write("Patología Detectada: Efusion Pleura  Porcentaje de Certeza: "+str(prediction[0,5]))
     st.write("---")
 
     left_column, right_column = st.columns(2)
