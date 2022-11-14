@@ -1,7 +1,7 @@
 import database as db
 import streamlit as st
 import numpy as np
-#import Red as red
+import Red as red
 
 all_files = np.array(db.enlistar())
 
