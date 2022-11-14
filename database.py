@@ -4,13 +4,11 @@ from deta import Deta
 from io import BytesIO
 from PIL import Image
 import numpy as np
-from dotenv import load_dotenv
 import os
 import pandas as pd
 
 
-load_dotenv(".env")
-DETA_KEY = os.getenv("DETA_KEY")
+DETA_KEY = "e0ff1r3f_xoNt6bMZJceHhxN37sKmcQhzwtcK4aQt"
 # initialize with a project key
 deta = Deta(DETA_KEY)
 
