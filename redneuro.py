@@ -20,6 +20,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from collections import Counter
 from tensorflow.keras.metrics import AUC
+from scipy.ndimage import gaussian_filter
 ##########################
 
 def build_model(PATH,image_size = 224, load_previous_weights = True, freeze_cnn = False):
@@ -88,7 +89,7 @@ def predecir(iamgen):
     heatmapX=heater(cnn,img_prep)
     resized = cv2.resize(heatmapX, (224,224), interpolation = cv2.INTER_AREA)
     heatmap1 = np.uint8(255 * resized)
-   
+    heatmap1 = gaussian_filter(heatmap1, sigma=11)
     heatmap2 = cv2.applyColorMap(heatmap1, cv2.COLORMAP_JET)
     img = np.uint8(255 * img_prep[0])
     superimposed_img = cv2.addWeighted(img, 0.8, heatmap2, 0.4, 0)
@@ -100,3 +101,4 @@ image_size_input = 224
 cnn = build_model('weights.hdf5',image_size = image_size_input)
 
 ## PREDICTION
+
