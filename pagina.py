@@ -2,7 +2,6 @@ import database as db
 import streamlit as st
 import numpy as np
 #import Red as red
-import pyautogui
 
 all_files = np.array(db.enlistar())
 
